@@ -1,0 +1,1 @@
+module.exports.UrunlerRoutes = require("./Urunler");
