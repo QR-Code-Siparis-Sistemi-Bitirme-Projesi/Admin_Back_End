@@ -1,5 +1,5 @@
 const logger = require("../logs/adminLogger");
-const {remove, update, list, MenuAl } = require("../servis/UrunlerServis");
+const {remove, update, MenuAl } = require("../servis/UrunlerServis");
 
 const MenuCagir = (req, res) => {
   MenuAl()
@@ -24,21 +24,8 @@ const MenuCagir = (req, res) => {
       res.status(500).send({ resData: "Düzenleme yapılamadı." });
     });
   };
-  
-  const SiparisleriAl = (req, res) => {
-    list()
-    .then((response) => {
-      res.status(200).send({ resData: response });
-      logger.info("Sipariş bilgileri alındı.");
-    })
-    .catch((err) => {
-      logger.error("Sipariş bilgileri alınamadı, hata: ", err);
-      res
-      .status(500)
-      .send({ resData: "Bilgiler alınamadı." });
-    });
-  };
-  
+
+
   const UrunSil = (req, res) => {
     remove(req.body)
     .then((response) => {

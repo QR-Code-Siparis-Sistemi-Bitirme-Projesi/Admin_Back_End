@@ -1,5 +1,5 @@
 const logger = require("../logs/adminLogger");
-const {remove, update, list, SiparisAl } = require("../servis/SiparislerServis");
+const {remove, update, SiparisAl } = require("../servis/SiparislerServis");
 
 const SiparisleriCagir = (req, res) => {
   SiparisAl()
@@ -25,19 +25,6 @@ const SiparisleriCagir = (req, res) => {
     });
   };
   
-  const SiparisleriAl = (req, res) => {
-    list()
-    .then((response) => {
-      res.status(200).send({ resData: response });
-      logger.info("Sipariş bilgileri alındı.");
-    })
-    .catch((err) => {
-      logger.error("Sipariş bilgileri alınamadı, hata: ", err);
-      res
-      .status(500)
-      .send({ resData: "Bilgiler alınamadı." });
-    });
-  };
   
   const SiparisSil = (req, res) => {
     remove(req.body)
