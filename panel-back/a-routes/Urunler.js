@@ -21,3 +21,4 @@ const { urunlerValidation, siparislerValidation, } = require("../middleware/dogr
 router.route(process.env.GET_URUN_LISTELE).get(MenuCagir);
 
 
+module.exports = router;
