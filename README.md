@@ -1,1 +1,1 @@
-## Admin paneli back-end
+## HATALAR ÇÖZÜLECEK
