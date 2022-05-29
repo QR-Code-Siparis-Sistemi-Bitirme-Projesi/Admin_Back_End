@@ -1,4 +1,4 @@
-const {kahvalti,icecekler,TekBagel,Tatlilar,Sandvicler,HaftaSonuOzel,Ekstralar} = require("../models/UrunBilgileri");
+const {kahvalti,icecekler,TekBagel,Tatlilar,Sandvicler,HaftaSonuOzel,Ekstralar} = require("../Schemas/urunSchemas");
 
 const MenuAl = async ()  => {
   const Kahvaltı = await kahvalti.find({});
@@ -32,8 +32,8 @@ const MenuAl = async ()  => {
   return menuObj;
 };
 
-const update = (DuzenlenenBilgi) => {   //Düzenlenmiş bilgi.
-  const guncelBilgi = {
+const update = (DuzenlenenUrun) => {   //Düzenlenmiş bilgi.
+  const guncelUrun = {
     siparişler: DuzenlenenBilgi.siparişler,
     yemek: DuzenlenenBilgi.yemek,
     isim: DuzenlenenBilgi.isim,
@@ -43,15 +43,15 @@ const update = (DuzenlenenBilgi) => {   //Düzenlenmiş bilgi.
     tatli:DuzenlenenBilgi.tatli
   };
 
-  return Bilgi.findByIdAndUpdate(DuzenlenenBilgi.id, guncelBilgi); //Id ile bilgiyi bulup düzenlenen ile değiştirme.
+  return Urun.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); //Id ile bilgiyi bulup düzenlenen ile değiştirme.
 };
 
-const remove = (silinecekbilgi) => {
-  return Bilgi.findByIdAndDelete(silinecekbilgi.id); //Id ile bilgiyi bulup silme.
+const remove = (silinecekUrun) => {
+  return Bilgi.findByIdAndDelete(silinecekUrun.id); //Id ile bilgiyi bulup silme.
 };
 
 const list = () => {
-  return Bilgi.find({}); //Bilgileri görüntüleme.
+  return Urun.find({}); //Bilgileri görüntüleme.
 };
 
 module.exports = {
