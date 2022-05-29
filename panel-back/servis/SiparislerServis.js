@@ -14,20 +14,20 @@ const SiparisAl = async ()  => {
   return siparisObj;
 };
 
-const update = (DuzenlenenSiparis) => {   //Düzenlenmiş bilgi.
+const update = (DuzenlenenSiparis) => {   //Düzenlenmiş sipariş.
   const guncelSiparis = {
     siparişler: DuzenlenenSiparis.siparişler,
   };
 
-  return Siparis.findByIdAndUpdate(DuzenlenenSiparis.id, guncelSiparis); //Id ile bilgiyi bulup düzenlenen ile değiştirme.
+  return Siparis.findByIdAndUpdate(DuzenlenenSiparis.id, guncelSiparis); //Id ile siparişi bulup düzenlenen ile değiştirme.
 };
 
 const remove = (silineceksiparis) => {
-  return Siparis.findByIdAndDelete(silineceksiparis.id); //Id ile bilgiyi bulup silme.
+  return Siparis.findByIdAndDelete(silineceksiparis.id); //Id ile siparişi bulup silme.
 };
 
 const list = () => {
-  return Silgi.find({}); //Bilgileri görüntüleme.
+  return Silgi.find({}); //Siparişleri görüntüleme.
 };
 
 module.exports = {

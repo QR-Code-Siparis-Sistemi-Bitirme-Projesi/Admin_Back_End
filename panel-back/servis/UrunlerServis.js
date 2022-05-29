@@ -32,26 +32,29 @@ const MenuAl = async ()  => {
   return menuObj;
 };
 
-const update = (DuzenlenenUrun) => {   //Düzenlenmiş bilgi.
+const update = (DuzenlenenUrun) => {   //Düzenlenmiş Ürün.
   const guncelUrun = {
-    siparişler: DuzenlenenBilgi.siparişler,
-    yemek: DuzenlenenBilgi.yemek,
-    isim: DuzenlenenBilgi.isim,
-    fiyat:DuzenlenenBilgi.fiyat,
-    içerik:DuzenlenenBilgi.içerik,
-    icecek:DuzenlenenBilgi.icecek,
-    tatli:DuzenlenenBilgi.tatli
+    siparişler: DuzenlenenUrun.siparişler,
+    yemek: DuzenlenenUrun.yemek,
+    isim: DuzenlenenUrun.isim,
+    fiyat:DuzenlenenUrun.fiyat,
+    içerik:DuzenlenenUrun.içerik,
+    icecek:DuzenlenenUrun.icecek,
+    tatli:DuzenlenenUrun.tatli,
+    Urun:DuzenlenenUrun.Urun,
+    Fiyat:DuzenlenenUrun.Fiyat,
+    içindekiler:DuzenlenenUrun.içindekiler
   };
 
-  return Urun.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); //Id ile bilgiyi bulup düzenlenen ile değiştirme.
+  return Urun.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); //Id ile ürünü bulup düzenlenen ile değiştirme.
 };
 
 const remove = (silinecekUrun) => {
-  return Bilgi.findByIdAndDelete(silinecekUrun.id); //Id ile bilgiyi bulup silme.
+  return Urun.findByIdAndDelete(silinecekUrun.id); //Id ile ürünü bulup silme.
 };
 
 const list = () => {
-  return Urun.find({}); //Bilgileri görüntüleme.
+  return Urun.find({}); //Ürünleri görüntüleme.
 };
 
 module.exports = {

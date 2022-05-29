@@ -5,7 +5,8 @@ const router = express.Router();
 const {
     MenuCagir,
     UrunDuzenle,
-    UrunSil
+    UrunSil,
+    
 } =require("../controls/UrunlerController");
 const {
     SiparisleriCagir,
@@ -19,6 +20,10 @@ const { urunlerValidation, siparislerValidation, } = require("../middleware/dogr
 
 
 router.route(process.env.GET_URUN_LISTELE).get(MenuCagir);
+
+router.route(process.env.PUT_URUN_DUZENLE).put(UrunDuzenle);
+
+router.route(process.env.DELETE_URUN_SIL).put(UrunSil);
 
 
 module.exports = router;
