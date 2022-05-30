@@ -48,44 +48,54 @@ const update = (DuzenlenenUrun) => {
     TekBagel: DuzenlenenUrun.TekBagel,
     icecekler: DuzenlenenUrun.icecekler,
     kahvalti: DuzenlenenUrun.kahvalti,
+
+    yemek: DuzenlenenUrun.yemek,
+    isim: DuzenlenenUrun.isim,
+    fiyat: DuzenlenenUrun.fiyat,
+    içerik: DuzenlenenUrun.içerik,
+    icecek: DuzenlenenUrun.icecek,
+    tatli: DuzenlenenUrun.tatli,
+    Urun: DuzenlenenUrun.Urun,
+    Fiyat: DuzenlenenUrun.Fiyat,
+    içindekiler: DuzenlenenUrun.içindekiler,
   };
-  
+
   switch (DuzenlenenUrun.tabIndex) {
     case 1:
-      return Tatlilar.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); 
-      case 2:
-        return icecekler.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); 
-        case 3:
-          return kahvalti.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); 
-          case 4:
-            return TekBagel.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); 
-            case 5:
-              return Sandvicler.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); 
-              case 6:
-                return HaftaSonuOzel.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); 
-                case 7:
-                  return Ekstralar.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); 
+      return Tatlilar.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun);
+    case 2:
+      return icecekler.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun);
+    case 3:
+      return kahvalti.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun);
+    case 4:
+      return TekBagel.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun);
+    case 5:
+      return Sandvicler.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun);
+    case 6:
+      return HaftaSonuOzel.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun);
+    case 7:
+      return Ekstralar.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun);
     //break;
     // return Tatlilar.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); //Id ile ürünü bulup düzenlenen ile değiştirme.
   }
 };
 
 const remove = (UrunSil) => {
-switch (UrunSil.tabIndex) {
+  switch (UrunSil.tabIndex) {
     case 1:
-    return Tatlilar.findByIdAndDelete(UrunSil.id); //Id ile ürünü bulup silme.; 
+      return Tatlilar.findByIdAndDelete(UrunSil.id); //Id ile ürünü bulup silme.; 
     case 2:
-    return icecekler.findByIdAndDelete(UrunSil.id); 
+      return icecekler.findByIdAndDelete(UrunSil.id);
     case 3:
-    return kahvalti.findByIdAndDelete(UrunSil.id); 
+      return kahvalti.findByIdAndDelete(UrunSil.id);
     case 4:
-    return TekBagel.findByIdAndDelete(UrunSil.id); 
+      return TekBagel.findByIdAndDelete(UrunSil.id);
     case 5:
-    return Sandvicler.findByIdAndDelete(UrunSil.id); 
+      return Sandvicler.findByIdAndDelete(UrunSil.id);
     case 6:
-    return HaftaSonuOzel.findByIdAndDelete(UrunSil.id); 
+      return HaftaSonuOzel.findByIdAndDelete(UrunSil.id);
     case 7:
-    return Ekstralar.findByIdAndDelete(UrunSil.id); 
+      return Ekstralar.findByIdAndDelete(UrunSil.id);
     //break;
     // return Tatlilar.findByIdAndUpdate(DuzenlenenUrun.id, guncelUrun); //Id ile ürünü bulup düzenlenen ile değiştirme.
   }
