@@ -23,7 +23,7 @@ router.route(process.env.GET_URUN_LISTELE).get(MenuCagir);
 
 router.route(process.env.PUT_URUN_DUZENLE).put(UrunDuzenle);
 
-router.route(process.env.DELETE_URUN_SIL).put(UrunSil);
+router.route(process.env.DELETE_URUN_SIL).delete(UrunSil);
 
 
 module.exports = router;
