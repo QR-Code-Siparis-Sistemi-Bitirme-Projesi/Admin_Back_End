@@ -88,7 +88,7 @@ const TatilarSchema = new mongoose.Schema(
   const EkstralarSchema = new mongoose.Schema(
     {
       Urun:{type: String},
-      Fiyat:{type: Object},
+      Fiyat: {type: Object},
   
     },
     {
