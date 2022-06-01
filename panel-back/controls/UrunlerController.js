@@ -1,6 +1,18 @@
 const logger = require("../logs/adminLogger");
-const {remove, update, MenuAl } = require("../servis/UrunlerServis");
+const {Ekle,remove,update,MenuAl} = require("../servis/UrunlerServis");
 
+
+const UrunEkle = (req, res) => {
+  //gidecek Bilgi servisinden ekleme metodu tetikleyecek
+  console.log(req.body);
+  Ekle(req.body)
+    .then((response) => {
+      res.status(200).send({ resData: response });
+    })
+    .catch((err) => {
+      res.status(500).send({ resData: "Ürün uygun değil." });
+    });
+};
 const MenuCagir = (req, res) => {
   MenuAl()
     .then((response) => {
@@ -44,4 +56,5 @@ module.exports = {
   MenuCagir,
   UrunDuzenle,
   UrunSil,
+  UrunEkle
 };

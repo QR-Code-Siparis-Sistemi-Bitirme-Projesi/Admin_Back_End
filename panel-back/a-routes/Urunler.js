@@ -6,6 +6,7 @@ const {
     MenuCagir,
     UrunDuzenle,
     UrunSil,
+    UrunEkle
     
 } =require("../controls/UrunlerController");
 const {
@@ -17,6 +18,8 @@ const {
 const Urunlervalidate = require("../validations/UrunlerValidate");
 const { SiparislerValidate } = require("../validations/SiparislerValidate");
 const { urunlerValidation, siparislerValidation, } = require("../middleware/dogrulama");
+
+router.route("/api/UrunEkle").post(UrunEkle);
 
 
 router.route(process.env.GET_URUN_LISTELE).get(MenuCagir);

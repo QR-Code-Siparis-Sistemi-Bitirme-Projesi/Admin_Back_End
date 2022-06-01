@@ -4,7 +4,7 @@ const logger = require("../logs/adminLogger");
 const KahvaltiSchema = new mongoose.Schema(
   {
     Urun:{type: String},
-    Fiyat:{type: Object},
+    Fiyat:{type: Number},
     İçindekiler:[{
 
     }],
@@ -20,11 +20,11 @@ const KahvaltiSchema = new mongoose.Schema(
 const IceceklerSchema = new mongoose.Schema(
   {
     Urun:{type: String},
-    Fiyat:{type: Object},
+    Fiyat:{type: Number},
 
   },
   {
-    collection: "icecekler", //Veri tabanında tablonun adı.
+    collection: "icecekler", 
     versionKey: false,
     default: undefined
   }
@@ -33,11 +33,11 @@ const IceceklerSchema = new mongoose.Schema(
 const TekBagelSchema = new mongoose.Schema(
   {
     Urun:{type: String},
-    Fiyat:{type: Object},
+    Fiyat:{type: Number},
 
   },
   {
-    collection: "Tek_Bagel", //Veri tabanında tablonun adı.
+    collection: "Tek_Bagel", 
     versionKey: false,
     default: undefined
   }
@@ -46,11 +46,11 @@ const TekBagelSchema = new mongoose.Schema(
 const TatilarSchema = new mongoose.Schema(
   {
     Urun:{type: String},
-    Fiyat:{type: Object},
+    Fiyat:{type: Number},
 
   },
   {
-    collection: "Tatlilar", //Veri tabanında tablonun adı.
+    collection: "Tatlilar",
     versionKey: false,
     default: undefined
   }
@@ -59,14 +59,14 @@ const TatilarSchema = new mongoose.Schema(
   const SandviclerSchema = new mongoose.Schema(
     {
       Urun:{type: String},
-      Fiyat:{type: Object},
+      Fiyat:{type: Number},
       İçindekiler:[{
   
       }],
   
     },
     {
-      collection: "Sandviçler", //Veri tabanında tablonun adı.
+      collection: "Sandviçler",
       versionKey: false,
       default: undefined
     }
@@ -75,11 +75,11 @@ const TatilarSchema = new mongoose.Schema(
     const HaftaSonuOzelSchema = new mongoose.Schema(
       {
         Urun:{type: String},
-        Fiyat:{type: Object},
+        Fiyat:{type: Number},
     
       },
       {
-        collection: "Hafta_Sonu_Ozel", //Veri tabanında tablonun adı.
+        collection: "Hafta_Sonu_Ozel",
         versionKey: false,
         default: undefined
       }
@@ -92,7 +92,7 @@ const TatilarSchema = new mongoose.Schema(
   
     },
     {
-      collection: "Ekstralar", //Veri tabanında tablonun adı.
+      collection: "Ekstralar", 
       versionKey: false,
       default: undefined
     }

@@ -11,22 +11,22 @@ const urunlerValidate = ({
 
     icecekler:[{
     Urun:{type: String},
-    Fiyat:{type: Object},
+    Fiyat:{type: Number},
     }],
      
     Tek_Bagel:[{
     Urun:{type: String},
-    Fiyat:{type: Object},
+    Fiyat:{type: Number},
     }],
  
     Tatlilar:[{
     Urun:{type: String},
-    Fiyat:{type: Object},
+    Fiyat:{type: Number},
     }],
  
     Sandviçler:[{
     Urun:{type: String},
-    Fiyat:{type: Object},
+    Fiyat:{type: Number},
     İçindekiler:[{
                
      }],
@@ -34,12 +34,12 @@ const urunlerValidate = ({
               
     Hafta_Sonu_Ozel:[{
     Urun:{type: String},
-    Fiyat:{type: Object},
+    Fiyat:{type: Number},
     }],
  
     Ekstralar:[{
     Urun:{type: String},
-    Fiyat:{type: Object},
+    Fiyat:{type: Number},
     }],
        
  

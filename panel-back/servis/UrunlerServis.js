@@ -7,6 +7,27 @@ const {
   HaftaSonuOzel,
   Ekstralar,
 } = require("../Schemas/urunSchemas");
+const UrunServis = require("../controls/UrunlerController");
+
+const Ekle = async (urunData) => {
+  const yeniUrun = new Urun(urunData);
+  switch (yeniUrun.tabIndex) {
+    case 1:
+      return (yeniUrun = await Tatlilar.save());
+    case 2:
+      return (yeniUrun = await icecekler.save());
+    case 3:
+      return (yeniUrun = await kahvalti.save());
+    case 4:
+      return (yeniUrun = await TekBagel.save());
+    case 5:
+      return (yeniUrun = await Sandvicler.save());
+    case 6:
+      return (yeniUrun = await HaftaSonuOzel.save());
+    case 7:
+      return (yeniUrun = await Ekstralar.save());
+  }
+};
 
 const MenuAl = async () => {
   const Kahvaltı = await kahvalti.find({});
@@ -83,7 +104,7 @@ const update = (DuzenlenenUrun) => {
 const remove = (UrunSil) => {
   switch (UrunSil.tabIndex) {
     case 1:
-      return Tatlilar.findByIdAndDelete(UrunSil.id); //Id ile ürünü bulup silme.; 
+      return Tatlilar.findByIdAndDelete(UrunSil.id); //Id ile ürünü bulup silme.;
     case 2:
       return icecekler.findByIdAndDelete(UrunSil.id);
     case 3:
@@ -109,5 +130,6 @@ module.exports = {
   MenuAl,
   update,
   remove,
+  Ekle,
   // list,
 };
