@@ -2,6 +2,7 @@
 
 const httpStatus = require("http-status");
 const logger = require("../logs/adminLogger");
+const { refreshTokenList,createTokens } = require("../servis/AdminLoginServis");
 
 const urunlerValidation = (schema) => (req, res, next) => {
   const { value, error } = schema.validate(req.body);
@@ -40,7 +41,54 @@ const siparislerValidation = (schema) => (req, res, next) => {
   return next();
 };
 
+
+
+const AdminGirisValidation = (schema) => (req, res, next) => {
+  const { value, error } = schema.validate(req.body);
+
+  if (error) {
+    res.status(httpStatus.BAD_REQUEST).send({
+      hataMesaji: "Şifre eksik veya yanlış!",
+    });
+
+    return;
+  }
+
+  Object.assign(req, value);
+
+  next();
+};
+
+const LoginAktifMi = () => (req, res, next) => {
+  const accessToken = req.header("Authorization").split(" ")[1];
+  const refreshToken = req.body.token.refreshToken;
+
+  if (!accessToken) {
+    res.status(401).send({ hataMesaji: "Hesaba giriş yapılmamış." });
+  }
+
+  jwt.verify(refreshToken, process.env.REFRESHTOKENSECRET, (err, admin) => {
+    if (!err && refreshTokenList.includes(refreshToken)) {
+      const { accessToken, refreshToken } = createTokens(req.body.admin);
+
+      admin.accessToken = accessToken;
+      admin.refreshToken = refreshToken;
+
+      console.log("New Tokens: ", admin);
+
+      next();
+    } else {
+      res.status(401).send({
+        hataMesajı:
+          "Giriş yapılmadı veya uzun süredir işlem yapılmadı.",
+      });
+    }
+  });
+};
+
 module.exports = {
     urunlerValidation,
     siparislerValidation,
+    AdminGirisValidation,
+    LoginAktifMi
 };
