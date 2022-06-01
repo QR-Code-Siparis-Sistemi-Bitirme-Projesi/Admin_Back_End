@@ -9,6 +9,7 @@ const {
     UrunEkle
     
 } =require("../controls/UrunlerController");
+const Schemas = require("../validations/UrunlerValidate");
 const {
     SiparisleriCagir,
     SiparisDuzenle,

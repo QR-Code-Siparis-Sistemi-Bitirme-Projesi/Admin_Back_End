@@ -9,23 +9,31 @@ const {
 } = require("../Schemas/urunSchemas");
 const UrunServis = require("../controls/UrunlerController");
 
+const Urun = require("../Schemas/urunSchemas");
+
 const Ekle = async (urunData) => {
-  const yeniUrun = new Urun(urunData);
-  switch (yeniUrun.tabIndex) {
+  switch (urunData.tabIndex) {
     case 1:
-      return (yeniUrun = await Tatlilar.save());
+      var yeniUrun = new Tatlilar(urunData);
+      return await yeniUrun.save();
     case 2:
-      return (yeniUrun = await icecekler.save());
+      var yeniUrun = new icecekler(urunData);
+      return await yeniUrun.save();
     case 3:
-      return (yeniUrun = await kahvalti.save());
+      var yeniUrun = new kahvalti(urunData);
+      return await yeniUrun.save();
     case 4:
-      return (yeniUrun = await TekBagel.save());
+      var yeniUrun = new TekBagel(urunData);
+      return await yeniUrun.save();
     case 5:
-      return (yeniUrun = await Sandvicler.save());
+      var yeniUrun = new Sandvicler(urunData);
+      return await yeniUrun.save();
     case 6:
-      return (yeniUrun = await HaftaSonuOzel.save());
-    case 7:
-      return (yeniUrun = await Ekstralar.save());
+      var yeniUrun = new HaftaSonuOzel(urunData);
+    return await yeniUrun.save();
+    case 7: 
+    var yeniUrun = new Ekstralar(urunData);
+    return await yeniUrun.save();
   }
 };
 
