@@ -3,7 +3,7 @@ var jwt = require("jsonwebtoken");
 
 let refreshTokenList = [];
 
-const AdminGirisKontrolu = async (adminBilgi) => {
+const AdminGirisKontrol = async (adminBilgi) => {
     const adminVeri = await Admin.find({ sfire: adminBilgi.sfire }); 
 
     const admin = adminVeri[0];
@@ -41,7 +41,7 @@ const createTokens = (Admin) => {
 };
 
 module.exports = {
-  AdminGirisKontrolu,
+    AdminGirisKontrol,
   createTokens,
   refreshTokenList,
 };

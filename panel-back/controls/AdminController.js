@@ -11,5 +11,5 @@ const AdminGiris = (req, res) => {
 };
 
 module.exports = {
-  AdminGiris,
+    AdminGiris,
 };
