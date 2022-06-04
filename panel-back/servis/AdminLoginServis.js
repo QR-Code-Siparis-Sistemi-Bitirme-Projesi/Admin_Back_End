@@ -4,9 +4,12 @@ var jwt = require("jsonwebtoken");
 let refreshTokenList = [];
 
 const AdminGirisKontrol = async (adminBilgi) => {
-    const adminVeri = await Admin.find({ sfire: adminBilgi.sfire }); 
+    const adminVeri = await Admin.find({ sifre: adminBilgi.sifre }); 
 
-    const admin = adminVeri[0];
+   
+   const admin = adminVeri[0];
+
+  console.log(adminVeri);
 
   if (adminVeri.length == 0) throw Error("Şifre hatalı.");
 
