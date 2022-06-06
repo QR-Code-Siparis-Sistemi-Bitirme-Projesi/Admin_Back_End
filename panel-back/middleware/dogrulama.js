@@ -18,21 +18,21 @@ const secmeliValidasyon = (req, res, next) => {
         // const deneme = Object.getOwnPropertyNames(reqObj);
         const iceriksiz = Object.getOwnPropertyNames(icerikOlmayan);
         const reqProps = Object.getOwnPropertyNames(req.body);
-
+        
         // deneme2.contains(req.body?.Urun);
-
+        
         console.log("doğrulama: ", reqProps);
 
         // iceriksiz.forEach((prop) => {
-        //   if (prop != "tabIndex") {
-        //     console.log("contains - ", reqProps.includes(prop));
-        //     if (reqProps.includes(prop) == true) {
-        //     }
-        //   } else {
-        //     res
-        //       .status(httpStatus.BAD_REQUEST)
-        //       .json({ hataMesaji: "Ürün bilgileri eksik veya hatalı." });
-        //   }
+          //   if (prop != "tabIndex") {
+            //     console.log("contains - ", reqProps.includes(prop));
+            //     if (reqProps.includes(prop) == true) {
+              //     }
+              //   } else {
+                //     res
+                //       .status(httpStatus.BAD_REQUEST)
+                //       .json({ hataMesaji: "Ürün bilgileri eksik veya hatalı." });
+                //   }
         // });
 
         if(!!reqObj.Urun == false || !!reqObj.Fiyat == false){  // Ürün bilgisi veya Fiyat bilgisinde hata varsa bu koşulu döndürür.
@@ -40,8 +40,9 @@ const secmeliValidasyon = (req, res, next) => {
           .status(httpStatus.BAD_REQUEST)
           .json( "Ürün bilgileri eksik veya hatalı." );
         }
-        res.status(200).json("Ürün ekleme başarılı.");
-        
+        else{res.status(200).json("Ürün ekleme başarılı.");
+        // console.log(req.body);
+      }
         break;
       // console.log("dogrulama - ", reqObj.Urun);
 

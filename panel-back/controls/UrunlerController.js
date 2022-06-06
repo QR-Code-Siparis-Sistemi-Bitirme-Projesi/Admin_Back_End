@@ -2,8 +2,8 @@ const logger = require("../logs/adminLogger");
 const {Ekle,remove,update,MenuAl} = require("../servis/UrunlerServis");
 
 
-const UrunEkle = (req, res) => {
-  //gidecek Bilgi servisinden ekleme metodu tetikleyecek
+const UrunEkle = (req, res,next) => {
+  //Servisteki metodu tetikleyecek.
   console.log(req.body);
   Ekle(req.body)
     .then((response) => {

@@ -7,9 +7,7 @@ const {
   HaftaSonuOzel,
   Ekstralar,
 } = require("../Schemas/urunSchemas");
-const UrunServis = require("../controls/UrunlerController");
 
-const Urun = require("../Schemas/urunSchemas");
 
 const Ekle = async (urunData) => {
   switch (urunData.tabIndex) {
