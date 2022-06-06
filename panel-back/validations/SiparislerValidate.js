@@ -1,59 +1,16 @@
-const siparisValidate = {
-  Admin: [
-    {
-      Kahvalti: [
-        {
-          Urun: { type: String },
-          Fiyat: { type: Object }, //objectler double değeri ile değiştirilecek.
-          İçindekiler: [{}],
-        },
-      ],
-      icecekler: [
-        {
-          Urun: { type: String },
-          Fiyat: { type: Object },
-        },
-      ],
+const Joi = require("joi");
 
-      Tek_Bagel: [
-        {
-          Urun: { type: String },
-          Fiyat: { type: Object },
-        },
-      ],
+const SiparisValidate = Joi.object({
+  masaNo: Joi.number().required(),
+  Urun: Joi.string().required(),
+  Fiyat: Joi.number().required(),
+  İçindekiler: Joi.array().min(1),
+  Ekstralar: Joi.array().max(50),
+  Not: Joi.string().max(120).alphanum(),
+  ToplamFiyat: Joi.number().required().min(1),
+});
 
-      Tatlilar: [
-        {
-          Urun: { type: String },
-          Fiyat: { type: Object },
-        },
-      ],
-
-      Sandviçler: [
-        {
-          Urun: { type: String },
-          Fiyat: { type: Object },
-          İçindekiler: [{}],
-        },
-      ],
-
-      Hafta_Sonu_Ozel: [
-        {
-          Urun: { type: String },
-          Fiyat: { type: Object },
-        },
-      ],
-
-      Ekstralar: [
-        {
-          Urun: { type: String },
-          Fiyat: { type: Object },
-        },
-      ],
-    },
-  ],
-};
 
 module.exports = {
-  siparisValidate,
-};
+  SiparisValidate
+}

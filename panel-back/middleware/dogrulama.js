@@ -2,6 +2,7 @@
 
 const httpStatus = require("http-status");
 const logger = require("../logs/adminLogger");
+const jwt = require("jsonwebtoken");
 const {
   refreshTokenList,
   createTokens,
@@ -39,10 +40,14 @@ const secmeliValidasyon = (req, res, next) => {
           res
           .status(httpStatus.BAD_REQUEST)
           .json( "Ürün bilgileri eksik veya hatalı." );
+          return;
         }
         else{res.status(200).json("Ürün ekleme başarılı.");
+
+  
         // console.log(req.body);
       }
+
         break;
       // console.log("dogrulama - ", reqObj.Urun);
 
@@ -141,10 +146,12 @@ const secmeliValidasyon = (req, res, next) => {
         
         break;
     }
-    return;
+    return;   
   }
-
-  res.status(500).send();
+  {
+    res.status(500).send();
+  }
+  return next();
 };
 
 const urunlerValidation = (schema) => (req, res, next) => {
@@ -167,11 +174,12 @@ const urunlerValidation = (schema) => (req, res, next) => {
 const siparislerValidation = (schema) => (req, res, next) => {
   const { value, error } = schema.validate({ id: req.body.id });
 
+  console.log(req.body);
   if (error) {
     logger.error("siparislerValidation hatası: ", error);
 
     res.send({
-      hataMesaji: "Sipariş işleminde hata oluştu.",
+      hataMesaji: "Sipariş işleminde hata oluştu(middle).",
       status: httpStatus.BAD_REQUEST,
     });
 
@@ -196,7 +204,7 @@ const AdminGirisValidation = (schema) => (req, res, next) => {
 
   Object.assign(req, value);
 
-  next();
+  return next();
 };
 
 const LoginAktifMi = () => (req, res, next) => {
