@@ -7,8 +7,6 @@ const {
   createTokens,
 } = require("../servis/AdminLoginServis");
 const { icerikOlmayan, icerikOlan } = require("../validations/UrunlerValidate");
-const { Tatlilar }
-  = require("../Schemas/urunSchemas");
 
 const secmeliValidasyon = (req, res, next) => {
   const reqObj = req.body;
@@ -23,48 +21,126 @@ const secmeliValidasyon = (req, res, next) => {
 
         // deneme2.contains(req.body?.Urun);
 
-        console.log("dogrulama - ", reqProps);
-        console.log("dogrulama2 - ", deneme3);
+        console.log("doğrulama: ", reqProps);
 
-        iceriksiz.forEach(prop => {
-          if (prop != "tabIndex") {
-            console.log("contains - ", reqProps.includes(prop));
-          }
+        // iceriksiz.forEach((prop) => {
+        //   if (prop != "tabIndex") {
+        //     console.log("contains - ", reqProps.includes(prop));
+        //     if (reqProps.includes(prop) == true) {
+        //     }
+        //   } else {
+        //     res
+        //       .status(httpStatus.BAD_REQUEST)
+        //       .json({ hataMesaji: "Ürün bilgileri eksik veya hatalı." });
+        //   }
+        // });
 
-        });
-        // console.log("dogrulama - ", reqObj.Urun);
-
-        res
+        if(!!reqObj.Urun == false || !!reqObj.Fiyat == false){  // Ürün bilgisi veya Fiyat bilgisinde hata varsa bu koşulu döndürür.
+          res
           .status(httpStatus.BAD_REQUEST)
-          .json({ hataMesaji: "Ürün bilgileri eksik veya hatalı." });
+          .json( "Ürün bilgileri eksik veya hatalı." );
+        }
+        res.status(200).json("Ürün ekleme başarılı.");
+        
+        break;
+      // console.log("dogrulama - ", reqObj.Urun);
 
-        return;
-
-      /**req.body içerisinde Tatlilar propperti leri var mı? ver tileri tutuyor mu 
-       * typeOf 
-      */
+      /**req.body içerisinde Tatlilar propperti leri var mı? ver tileri tutuyor mu
+       * typeOf
+       */
       //break;
       case 2:
-        console.log("dogrulama - ", urunlerValidate.icecekler);
+        const iceriksiz2 = Object.getOwnPropertyNames(icerikOlmayan);
+        const reqProps2 = Object.getOwnPropertyNames(req.body);
+
+
+        console.log("doğrulama: ", reqProps2);
+
+        if(!!reqObj.Urun == false || !!reqObj.Fiyat == false){  // Ürün bilgisi veya Fiyat bilgisinde hata varsa bu koşulu döndürür.
+          res
+          .status(httpStatus.BAD_REQUEST)
+          .json( "Ürün bilgileri eksik veya hatalı." );
+        }
+        res.status(200).json("Ürün ekleme başarılı.");
+        
         break;
       case 3:
-        console.log("dogrulama - ", urunlerValidate.kahvalti);
+        const icerikli = Object.getOwnPropertyNames(icerikOlan);
+        const reqProps3 = Object.getOwnPropertyNames(req.body);
+
+
+        console.log("doğrulama: ", reqProps3);
+
+        if(!!reqObj.Urun == false || !!reqObj.Fiyat == false || !!reqObj.Icindekiler == false){  // Ürün bilgisi veya Fiyat bilgisinde hata varsa bu koşulu döndürür.
+          res
+          .status(httpStatus.BAD_REQUEST)
+          .json( "Ürün bilgileri eksik veya hatalı." );
+        }
+        res.status(200).json("Ürün ekleme başarılı.");
+        
         break;
       case 4:
-        console.log("dogrulama - ", urunlerValidate.TekBagel);
+        const iceriksiz3 = Object.getOwnPropertyNames(icerikOlmayan);
+        const reqProps4 = Object.getOwnPropertyNames(req.body);
+
+
+        console.log("doğrulama: ", reqProps4);
+
+        if(!!reqObj.Urun == false || !!reqObj.Fiyat == false){  // Ürün bilgisi veya Fiyat bilgisinde hata varsa bu koşulu döndürür.
+          res
+          .status(httpStatus.BAD_REQUEST)
+          .json( "Ürün bilgileri eksik veya hatalı." );
+        }
+        res.status(200).json("Ürün ekleme başarılı.");
+        
         break;
       case 5:
-        console.log("dogrulama - ", urunlerValidate.Sandvicler);
+        const icerikli2 = Object.getOwnPropertyNames(icerikOlan);
+        const reqProps5 = Object.getOwnPropertyNames(req.body);
+
+
+        console.log("doğrulama: ", reqProps5);
+
+        if(!!reqObj.Urun == false || !!reqObj.Fiyat == false || !!reqObj.Icindekiler == false){  // Ürün bilgisi veya Fiyat bilgisinde hata varsa bu koşulu döndürür.
+          res
+          .status(httpStatus.BAD_REQUEST)
+          .json( "Ürün bilgileri eksik veya hatalı." );
+        }
+        res.status(200).json("Ürün ekleme başarılı.");
+        
         break;
       case 6:
-        console.log("dogrulama - ", urunlerValidate.HaftaSonuOzel);
+        const iceriksiz4 = Object.getOwnPropertyNames(icerikOlmayan);
+        const reqProps6 = Object.getOwnPropertyNames(req.body);
+
+
+        console.log("doğrulama: ", reqProps6);
+
+        if(!!reqObj.Urun == false || !!reqObj.Fiyat == false){  // Ürün bilgisi veya Fiyat bilgisinde hata varsa bu koşulu döndürür.
+          res
+          .status(httpStatus.BAD_REQUEST)
+          .json( "Ürün bilgileri eksik veya hatalı." );
+        }
+        res.status(200).json("Ürün ekleme başarılı.");
+        
         break;
       case 7:
-        console.log("dogrulama - ", urunlerValidate.Ekstralar);
+        const iceriksiz5 = Object.getOwnPropertyNames(icerikOlmayan);
+        const reqProps7 = Object.getOwnPropertyNames(req.body);
+
+
+        console.log("doğrulama: ", reqProps7);
+
+        if(!!reqObj.Urun == false || !!reqObj.Fiyat == false){  // Ürün bilgisi veya Fiyat bilgisinde hata varsa bu koşulu döndürür.
+          res
+          .status(httpStatus.BAD_REQUEST)
+          .json( "Ürün bilgileri eksik veya hatalı." );
+        }
+        res.status(200).json("Ürün ekleme başarılı.");
+        
         break;
     }
-
-    return next();
+    return;
   }
 
   res.status(500).send();

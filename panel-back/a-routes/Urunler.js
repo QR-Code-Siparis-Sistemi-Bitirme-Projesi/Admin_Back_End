@@ -8,7 +8,9 @@ const {
   UrunSil,
   UrunEkle,
 } = require("../controls/UrunlerController");
+
 const Schemas = require("../validations/UrunlerValidate");
+
 const adminSchema = require("..//validations/AdminLoginValidate");
 const {
   SiparisleriCagir,
@@ -16,8 +18,8 @@ const {
   SiparisSil,
 } = require("../controls/SiparislerController");
 
-const Urunlervalidate = require("../validations/UrunlerValidate");
 const { SiparislerValidate } = require("../validations/SiparislerValidate");
+
 const { AdminGiris } = require("../controls/AdminController");
 const {
   urunlerValidation,

@@ -2,13 +2,13 @@
 
 const icerikOlmayan = {
   Urun: { type: String },
-  Fiyat: { type: Number },
+  Fiyat: { type: Number }
 }
 
 const icerikOlan = {
   Urun: { type: String },
   Fiyat: { type: Number },
-  Icındekiler: { type: Array },
+  Icindekiler: { type: Array }
 }
 
 
@@ -16,5 +16,6 @@ const icerikOlan = {
 
 
 module.exports = {
-  icerikOlmayan, icerikOlan
+  icerikOlmayan,
+   icerikOlan
 }
