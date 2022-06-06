@@ -1,58 +1,20 @@
-const urunlerValidate = {
-  Kahvalti: [
-    {
-      Urun: { type: String },
-      Fiyat: { type: Object }, //objectler double değeri ile değiştirilecek.
-      İçindekiler: [{}],
-    },
-  ],
 
-  icecekler: [
-    {
-      Urun: { type: String },
-      Fiyat: { type: Number },
-    },
-  ],
 
-  Tek_Bagel: [
-    {
-      Urun: { type: String },
-      Fiyat: { type: Number },
-    },
-  ],
+const icerikOlmayan = {
+  Urun: { type: String },
+  Fiyat: { type: Number },
+}
 
-  Tatlilar: [
-    {
-      Urun: { type: String },
-      Fiyat: { type: Number },
-    },
-  ],
+const icerikOlan = {
+  Urun: { type: String },
+  Fiyat: { type: Number },
+  Icındekiler: { type: Array },
+}
 
-  Sandviçler: [
-    {
-      Urun: { type: String },
-      Fiyat: { type: Number },
-      İçindekiler: [{}],
-    },
-  ],
 
-  Hafta_Sonu_Ozel: [
-    {
-      Urun: { type: String },
-      Fiyat: { type: Number },
-    },
-  ],
 
-  Ekstralar: [
-    {
-      Urun: { type: String },
-      Fiyat: { type: Number },
-    },
-  ],
-};
- 
- 
- 
- module.exports = {
-   urunlerValidate
- }
+
+
+module.exports = {
+  icerikOlmayan, icerikOlan
+}

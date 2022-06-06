@@ -10,6 +10,7 @@ const UrunEkle = (req, res) => {
       res.status(200).send({ resData: response });
     })
     .catch((err) => {
+      console.log("Hata: ", err)
       res.status(500).send({ resData: "Ürün uygun değil." });
     });
 };

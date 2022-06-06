@@ -6,19 +6,65 @@ const {
   refreshTokenList,
   createTokens,
 } = require("../servis/AdminLoginServis");
-const urunlerValidate = require("../validations/UrunlerValidate");
+const { icerikOlmayan, icerikOlan } = require("../validations/UrunlerValidate");
+const { Tatlilar }
+  = require("../Schemas/urunSchemas");
 
 const secmeliValidasyon = (req, res, next) => {
-  const { tabIndex } = req.body;
-  console.log("tabIndex - ", tabIndex);
+  const reqObj = req.body;
+  console.log("tabIndex - ", reqObj.tabIndex);
 
-  if (tabIndex) {
-    switch (tabIndex) {
+  if (reqObj.tabIndex) {
+    switch (reqObj.tabIndex) {
       case 1:
-        console.log("dogrulama - ", urunlerValidate.Tatlilar);
+        // const deneme = Object.getOwnPropertyNames(reqObj);
+        const iceriksiz = Object.getOwnPropertyNames(icerikOlmayan);
+        const reqProps = Object.getOwnPropertyNames(req.body);
+
+        // deneme2.contains(req.body?.Urun);
+
+        console.log("dogrulama - ", reqProps);
+        console.log("dogrulama2 - ", deneme3);
+
+        iceriksiz.forEach(prop => {
+          if (prop != "tabIndex") {
+            console.log("contains - ", reqProps.includes(prop));
+          }
+
+        });
+        // console.log("dogrulama - ", reqObj.Urun);
+
+        res
+          .status(httpStatus.BAD_REQUEST)
+          .json({ hataMesaji: "Ürün bilgileri eksik veya hatalı." });
+
+        return;
+
+      /**req.body içerisinde Tatlilar propperti leri var mı? ver tileri tutuyor mu 
+       * typeOf 
+      */
+      //break;
+      case 2:
+        console.log("dogrulama - ", urunlerValidate.icecekler);
+        break;
+      case 3:
+        console.log("dogrulama - ", urunlerValidate.kahvalti);
+        break;
+      case 4:
+        console.log("dogrulama - ", urunlerValidate.TekBagel);
+        break;
+      case 5:
+        console.log("dogrulama - ", urunlerValidate.Sandvicler);
+        break;
+      case 6:
+        console.log("dogrulama - ", urunlerValidate.HaftaSonuOzel);
+        break;
+      case 7:
+        console.log("dogrulama - ", urunlerValidate.Ekstralar);
+        break;
     }
 
-    next();
+    return next();
   }
 
   res.status(500).send();
