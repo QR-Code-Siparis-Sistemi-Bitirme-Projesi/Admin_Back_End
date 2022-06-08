@@ -1,3 +1,4 @@
+const logger = require("../logs/adminLogger");
 const mongoose = require("mongoose");
 
 const SiparisSchema = new mongoose.Schema(
@@ -23,6 +24,6 @@ SiparisSchema.post("save", (doc) => {
 });
 
 
-const siparis = mongoose.model("SiparisSchema", SiparisSchema);
+// const siparis = 
 
-module.exports = siparis;
+module.exports = mongoose.model("SiparisSchema", SiparisSchema);

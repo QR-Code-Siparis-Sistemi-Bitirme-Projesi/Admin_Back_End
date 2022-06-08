@@ -13,10 +13,9 @@ const AdminGirisKontrol = async (adminBilgi) => {
 
   if (adminVeri.length == 0) throw Error("Şifre hatalı.");
 
-  const newTokens = createTokens(Admin);
+  const newTokens = createTokens();
 
   let AdminLogin = {
-     sifre: Admin.sifre,
     tokens: {
       access: newTokens.accessToken,
       refresh: newTokens.refreshToken,
@@ -25,16 +24,16 @@ const AdminGirisKontrol = async (adminBilgi) => {
 
   return AdminLogin;
 };
-
-const createTokens = (Admin) => {
+const createTokens = () => {
+  console.log("Admin servis ",)
   const accessToken = jwt.sign(
-    { sifre: Admin.sifre },
+    { tasiyici: "Umut"  },
     process.env.ACCESSTOKENSECRET,
     { expiresIn: "30m" }
   );
 
   const refreshToken = jwt.sign(
-    { sifre: Admin.sifre },
+    { tasiyici: "Umut" },
     process.env.REFRESHTOKENSECRET,
     { expiresIn: "1h" }
   );

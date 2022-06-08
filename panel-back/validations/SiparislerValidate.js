@@ -4,7 +4,7 @@ const SiparisValidate = Joi.object({
   masaNo: Joi.number().required(),
   Urun: Joi.string().required(),
   Fiyat: Joi.number().required(),
-  İçindekiler: Joi.array().min(1),
+  icindekiler: Joi.array().min(1),
   Ekstralar: Joi.array().max(50),
   Not: Joi.string().max(120).alphanum(),
   ToplamFiyat: Joi.number().required().min(1),

@@ -13,6 +13,7 @@ const SiparisEkle = (req, res) => {
       logger.info("Sipariş alındı, alınan sipariş: ", req.body);
     })
     .catch((err) => {
+      console.log(err);
       logger.error("Sipariş ekleme hatası - ", err);
       res.status(500).send({ resData: "Sipariş hatalı!" });
     });

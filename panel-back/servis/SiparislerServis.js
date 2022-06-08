@@ -1,8 +1,10 @@
-const { siparis } = require("../Schemas/siparisSchemas");
+const  SiparisSchema = require("../Schemas/siparisSchemas");
 
 const siparisEkle = async (urunData) => {
-  var yeniUrun = new siparis(urunData);
-  return yeniUrun.save();
+  console.log("Siparis servisi", urunData);
+  const yeniUrun = new SiparisSchema(urunData);
+  console.log(yeniUrun);
+  return await yeniUrun.save();
 };
 
 const SiparisAl = async () => {

@@ -30,7 +30,7 @@ const {
   secmeliValidasyon,
 } = require("../middleware/dogrulama");
 
-router.route("/api/UrunEkle").post(secmeliValidasyon, UrunEkle);
+router.route(process.env.POST_URUN_EKLE).post(LoginAktifMi(),secmeliValidasyon, UrunEkle);
 
 router.route(process.env.GET_URUN_LISTELE).get(LoginAktifMi(), MenuCagir);
 
@@ -38,7 +38,7 @@ router.route(process.env.PUT_URUN_DUZENLE).put(UrunDuzenle);
 
 router.route(process.env.DELETE_URUN_SIL).delete(UrunSil);
 
-router.route(process.env.POST_SIPARIS_EKLE).post(SiparisEkle);
+router.route(process.env.POST_SIPARIS_EKLE).post(siparislerValidation(SiparisValidate),SiparisEkle);
 
 router.route(process.env.PUT_SIPARIS_DUZENLE).put(SiparisDuzenle);
 
