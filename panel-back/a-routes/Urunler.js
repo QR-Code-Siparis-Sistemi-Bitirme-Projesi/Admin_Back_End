@@ -34,17 +34,17 @@ router.route(process.env.POST_URUN_EKLE).post(LoginAktifMi(),secmeliValidasyon, 
 
 router.route(process.env.GET_URUN_LISTELE).get(LoginAktifMi(), MenuCagir);
 
-router.route(process.env.PUT_URUN_DUZENLE).put(UrunDuzenle);
+router.route(process.env.PUT_URUN_DUZENLE).put(LoginAktifMi(),UrunDuzenle);
 
-router.route(process.env.DELETE_URUN_SIL).delete(UrunSil);
+router.route(process.env.DELETE_URUN_SIL).delete(LoginAktifMi(),UrunSil);
 
-router.route(process.env.POST_SIPARIS_EKLE).post(siparislerValidation(SiparisValidate),SiparisEkle);
+router.route(process.env.POST_SIPARIS_EKLE).post(LoginAktifMi(),siparislerValidation(SiparisValidate),SiparisEkle);
 
-router.route(process.env.PUT_SIPARIS_DUZENLE).put(SiparisDuzenle);
+router.route(process.env.PUT_SIPARIS_DUZENLE).put(LoginAktifMi(),SiparisDuzenle);
 
-router.route(process.env.DELETE_SIPARIS_SIL).delete(SiparisSil);
+router.route(process.env.DELETE_SIPARIS_SIL).delete(LoginAktifMi(),SiparisSil);
 
-router.route(process.env.GET_SIPARIS_LISTELE).get(SiparisleriCagir);
+router.route(process.env.GET_SIPARIS_LISTELE).get(LoginAktifMi(),SiparisleriCagir);
 
 router
   .route(process.env.POST_GIRIS)

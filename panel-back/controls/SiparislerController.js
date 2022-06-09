@@ -27,6 +27,7 @@ const SiparisleriCagir = (req, res) => {
       logger.info("Siparişler gönderildi, Gönderilen Veri: ", response); //log
     })
     .catch((err) => {
+      console.log(err);
       logger.error("Sipariş hatası: ", err); //hata log
       res.status(500).send({ resData: "Sipariş verisi uygun değil." });
     });

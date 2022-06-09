@@ -66,7 +66,7 @@ const MenuAl = async () => {
 const update = (DuzenlenenUrun) => {
   //Düzenlenmiş Ürün.
 
-  console.log("Service update - ", DuzenlenenUrun);
+  console.log("Ürün güncellemesi: ", DuzenlenenUrun);
   const guncelUrun = {
     HaftaSonuOzel: DuzenlenenUrun.HaftaSonuOzel,
     Sandvicler: DuzenlenenUrun.Sandvicler,

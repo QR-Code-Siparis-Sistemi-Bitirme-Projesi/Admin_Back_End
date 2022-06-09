@@ -15,7 +15,7 @@ const SiparisSchema = new mongoose.Schema(
   {
     collection: "Siparisler", 
     versionKey: false,
-    default: undefined,
+    timestamps: true,
   }
 );
 
@@ -23,6 +23,9 @@ SiparisSchema.post("save", (doc) => {
   logger.info("Sipariş başarıyla oluşturuldu, Sipariş bilgileri: ", doc);
 });
 
+SiparisSchema.post("findOneAndUpdate", (doc) => {
+  logger.info("Başarıyla güncellendi, güncellenen: ", doc);
+});
 
 // const siparis = 
 
