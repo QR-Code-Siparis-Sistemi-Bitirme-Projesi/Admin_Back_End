@@ -153,11 +153,14 @@ const secmeliValidasyon = (req, res, next) => {
 
         break;
     }
+    return next();
   }
 
-  // res.status(500).send();
+  res.send({
+    hataMesaji: "Hangi menü tablosunda olacağını belirtiniz..",
+    status: httpStatus.BAD_REQUEST,
+  });
 
-  return next();
 };
 
 const urunlerValidation = (schema) => (req, res, next) => {
