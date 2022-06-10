@@ -65,8 +65,9 @@ const secmeliValidasyon = (req, res, next) => {
           res
             .status(httpStatus.BAD_REQUEST)
             .json("Ürün bilgileri eksik veya hatalı.");
+
+          return;
         }
-        res.status(200).json("Ürün ekleme başarılı.");
 
         break;
       case 3:
@@ -84,8 +85,9 @@ const secmeliValidasyon = (req, res, next) => {
           res
             .status(httpStatus.BAD_REQUEST)
             .json("Ürün bilgileri eksik veya hatalı.");
+
+          return;
         }
-        res.status(200).json("Ürün ekleme başarılı.");
 
         break;
       case 4:
@@ -99,8 +101,9 @@ const secmeliValidasyon = (req, res, next) => {
           res
             .status(httpStatus.BAD_REQUEST)
             .json("Ürün bilgileri eksik veya hatalı.");
+
+          return;
         }
-        res.status(200).json("Ürün ekleme başarılı.");
 
         break;
       case 5:
@@ -118,8 +121,9 @@ const secmeliValidasyon = (req, res, next) => {
           res
             .status(httpStatus.BAD_REQUEST)
             .json("Ürün bilgileri eksik veya hatalı.");
+
+          return;
         }
-        res.status(200).json("Ürün ekleme başarılı.");
 
         break;
       case 6:
@@ -133,8 +137,9 @@ const secmeliValidasyon = (req, res, next) => {
           res
             .status(httpStatus.BAD_REQUEST)
             .json("Ürün bilgileri eksik veya hatalı.");
+
+          return;
         }
-        res.status(200).json("Ürün ekleme başarılı.");
 
         break;
       case 7:
@@ -148,8 +153,9 @@ const secmeliValidasyon = (req, res, next) => {
           res
             .status(httpStatus.BAD_REQUEST)
             .json("Ürün bilgileri eksik veya hatalı.");
+
+          return;
         }
-        res.status(200).json("Ürün ekleme başarılı.");
 
         break;
     }
@@ -229,26 +235,26 @@ const LoginAktifMi = () => (req, res, next) => {
   }
 
   jwt.verify(refreshToken, process.env.REFRESHTOKENSECRET, (err, admin) => {
-    console.log("Hata: ",err);
-    console.log("Admin: ",admin);
+    console.log("Hata: ", err);
+    console.log("Admin: ", admin);
     if (!err && refreshTokenList.includes(refreshToken)) {
       const { accessToken, refreshToken } = createTokens(req.body.admin);
-      
+
       // admin.accessToken = accessToken;
       // admin.refreshToken = refreshToken;
-      
+
       const resAdmin = {
         admin: admin.sifre,
-        
+
         access: accessToken,
-        
+
         refresh: refreshToken,
       };
 
       res.admin = resAdmin;
-      
+
       console.log("New Tokens: ", admin);
-      
+
       return next();
     } else {
       res.status(401).send({
