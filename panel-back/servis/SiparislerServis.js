@@ -1,4 +1,4 @@
-const  SiparisSchema = require("../Schemas/siparisSchemas");
+const SiparisSchema = require("../Schemas/siparisSchemas");
 
 const siparisEkle = async (siparisData) => {
   console.log("Siparis servisi", siparisData);
@@ -30,7 +30,6 @@ const siparisGuncelle = (DuzenlenenSiparis) => {
     Ekstralar: DuzenlenenSiparis.Ekstralar,
     Not: DuzenlenenSiparis.Not,
     ToplamFiyat: DuzenlenenSiparis.ToplamFiyat,
-    
   };
 
   return SiparisSchema.findByIdAndUpdate(DuzenlenenSiparis.id, guncelSiparis); //Id ile siparişi bulup düzenlenen ile değiştirme.

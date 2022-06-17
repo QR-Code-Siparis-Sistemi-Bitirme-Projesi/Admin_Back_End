@@ -10,10 +10,10 @@ const SiparisSchema = new mongoose.Schema(
     Ekstralar: { type: Array },
     Not: { type: String },
     ToplamFiyat: { type: Number },
-  },              
+  },
   //TOPLAM ÜRÜN SAYISINI VE TOPLAM FİYATI VERECEK BİR BİÇİMDE DÜZENLENECEK!
   {
-    collection: "Siparisler", 
+    collection: "Siparisler",
     versionKey: false,
     timestamps: true,
   }
@@ -27,6 +27,6 @@ SiparisSchema.post("findOneAndUpdate", (doc) => {
   logger.info("Başarıyla güncellendi, güncellenen: ", doc);
 });
 
-// const siparis = 
+// const siparis =
 
 module.exports = mongoose.model("SiparisSchema", SiparisSchema);

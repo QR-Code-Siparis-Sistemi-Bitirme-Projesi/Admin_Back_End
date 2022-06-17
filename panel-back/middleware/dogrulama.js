@@ -9,6 +9,9 @@ const {
 } = require("../servis/AdminLoginServis");
 const { icerikOlmayan, icerikOlan } = require("../validations/UrunlerValidate");
 
+// İlk sağlanması gereken kullanıcı isteği koşulları burada.
+// Yorum satırları aynı hataları tekrarlamamak adına silinmedi.
+
 const secmeliValidasyon = (req, res, next) => {
   const reqObj = req.body;
   console.log("tabIndex - ", reqObj.tabIndex);
@@ -50,9 +53,6 @@ const secmeliValidasyon = (req, res, next) => {
         break;
       // console.log("dogrulama - ", reqObj.Urun);
 
-      /**req.body içerisinde Tatlilar propperti leri var mı? ver tileri tutuyor mu
-       * typeOf
-       */
       //break;
       case 2:
         const iceriksiz2 = Object.getOwnPropertyNames(icerikOlmayan);
@@ -166,7 +166,6 @@ const secmeliValidasyon = (req, res, next) => {
     hataMesaji: "Hangi menü tablosunda olacağını belirtiniz..",
     status: httpStatus.BAD_REQUEST,
   });
-
 };
 
 const urunlerValidation = (schema) => (req, res, next) => {

@@ -10,7 +10,8 @@ const SiparisValidate = Joi.object({
   ToplamFiyat: Joi.number().required().min(1),
 });
 
+//Sipariş için sağlanması gereken koşullar.
 
 module.exports = {
-  SiparisValidate
-}
+  SiparisValidate,
+};

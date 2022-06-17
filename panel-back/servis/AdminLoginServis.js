@@ -4,10 +4,9 @@ var jwt = require("jsonwebtoken");
 let refreshTokenList = [];
 
 const AdminGirisKontrol = async (adminBilgi) => {
-    const adminVeri = await Admin.find({ sifre: adminBilgi.sifre }); 
+  const adminVeri = await Admin.find({ sifre: adminBilgi.sifre });
 
-   
-   const admin = adminVeri[0];
+  const admin = adminVeri[0];
 
   console.log(adminVeri);
 
@@ -25,9 +24,9 @@ const AdminGirisKontrol = async (adminBilgi) => {
   return AdminLogin;
 };
 const createTokens = () => {
-  console.log("Admin servis ",)
+  console.log("Admin servis ");
   const accessToken = jwt.sign(
-    { tasiyici: "Umut"  },
+    { tasiyici: "Umut" },
     process.env.ACCESSTOKENSECRET,
     { expiresIn: "30m" }
   );
@@ -43,7 +42,7 @@ const createTokens = () => {
 };
 
 module.exports = {
-    AdminGirisKontrol,
+  AdminGirisKontrol,
   createTokens,
   refreshTokenList,
 };

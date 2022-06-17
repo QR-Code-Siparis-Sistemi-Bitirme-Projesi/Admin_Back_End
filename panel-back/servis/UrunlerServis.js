@@ -8,7 +8,6 @@ const {
   Ekstralar,
 } = require("../Schemas/urunSchemas");
 
-
 const Ekle = async (urunData) => {
   switch (urunData.tabIndex) {
     case 1:
@@ -28,10 +27,10 @@ const Ekle = async (urunData) => {
       return await yeniUrun.save();
     case 6:
       var yeniUrun = new HaftaSonuOzel(urunData);
-    return await yeniUrun.save();
-    case 7: 
-    var yeniUrun = new Ekstralar(urunData);
-    return await yeniUrun.save();
+      return await yeniUrun.save();
+    case 7:
+      var yeniUrun = new Ekstralar(urunData);
+      return await yeniUrun.save();
   }
 };
 

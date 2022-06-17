@@ -6,16 +6,18 @@ const {
   SiparisAl,
 } = require("../servis/SiparislerServis");
 
+//Sipariş işlemlerinin kontrolleri burada.
+
 const SiparisEkle = (req, res) => {
   siparisEkle(req.body)
-    .then((response) => {
-      res.status(200).send({ resData: response });
+    .then((response) => { // işlem bloğu.
+      res.status(200).send({ resData: response }); //başarılı işlem sonucu dönecek değer.
       logger.info("Sipariş alındı, alınan sipariş: ", req.body);
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err);      // hatayı yakalayacak yer.
       logger.error("Sipariş ekleme hatası - ", err);
-      res.status(500).send({ resData: "Sipariş hatalı!" });
+      res.status(500).send({ resData: "Sipariş hatalı!" }); // başarsıız işlem sonucu dönecek değer.
     });
 };
 
