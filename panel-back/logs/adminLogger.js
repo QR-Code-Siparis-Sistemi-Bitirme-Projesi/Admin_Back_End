@@ -10,7 +10,7 @@ const logger = winston.createLogger({
     }),
     new winston.transports.File({
       level: "info",
-      filename: "panel-back/logFile/veri.log", //Bilgilerin olacağı log kısmı.
+      filename: "panel-back/logFile/veri.log", //Verilerin olacağı log kısmı.
     }),
     new winston.transports.File({ filename: "panel-back/logFile/all.log" }), //Her türlü logun bulunacağı kısım.
   ],
