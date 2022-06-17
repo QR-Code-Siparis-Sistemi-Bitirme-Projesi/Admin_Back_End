@@ -1,13 +1,12 @@
 const winston = require("winston");
-// Log işlemleri...
+// Log kayıt işlemleri...
 const logger = winston.createLogger({
-
   format: winston.format.json(),
-  defaultMeta: { service: "bilgiler-service" }, 
+  defaultMeta: { service: "bilgiler-service" },
   transports: [
     new winston.transports.File({
       level: "error",
-      filename: "panel-back/logFile/errors.log",  //Hatalarla oluşturulacak log kısmı.
+      filename: "panel-back/logFile/errors.log", //Hatalarla oluşturulacak log kısmı.
     }),
     new winston.transports.File({
       level: "info",
