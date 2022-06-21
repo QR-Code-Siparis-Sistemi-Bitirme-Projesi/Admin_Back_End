@@ -8,7 +8,15 @@ const siparisEkle = async (siparisData) => {
 };
 
 const SiparisAl = async () => {
-  const siparisler = await SiparisSchema.find({});
+  const siparisler = await SiparisSchema.find({
+    // createdAt: {
+
+    //   $gte: ilkTarih("2010-04-29T00:00:00.000Z"),
+  
+    //   $lt: sonTarih("2010-05-01T00:00:00.000Z")
+  
+    // }
+  });
 
   const siparisObj = {
     siparisObj: siparisler,

@@ -8,7 +8,7 @@ const AdminGiris = (req, res) => {
       res.status(200).json({ mesaj: resKullanici });
     })
     .catch((err) => {
-      logger.error("Admin giriş hatası, hata: ", response); 
+      logger.error("Admin giriş hatası, hata: ", err); 
       res.status(401).json({ mesaj: err.message });
     });
 };

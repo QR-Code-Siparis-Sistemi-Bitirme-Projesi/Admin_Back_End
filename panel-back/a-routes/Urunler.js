@@ -35,7 +35,7 @@ router
   .route(process.env.POST_URUN_EKLE)
   .post(LoginAktifMi(), secmeliValidasyon, UrunEkle);
 
-router.route(process.env.GET_URUN_LISTELE).get(LoginAktifMi(), MenuCagir);
+router.route(process.env.GET_URUN_LISTELE).get(MenuCagir);
 
 router.route(process.env.PUT_URUN_DUZENLE).put(LoginAktifMi(), UrunDuzenle);
 
@@ -53,7 +53,7 @@ router.route(process.env.DELETE_SIPARIS_SIL).delete(LoginAktifMi(), SiparisSil);
 
 router
   .route(process.env.GET_SIPARIS_LISTELE)
-  .get(LoginAktifMi(), SiparisleriCagir);
+  .get(SiparisleriCagir);
 
 router
   .route(process.env.POST_GIRIS)
