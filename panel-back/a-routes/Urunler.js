@@ -53,7 +53,7 @@ router.route(process.env.DELETE_SIPARIS_SIL).delete(LoginAktifMi(), SiparisSil);
 
 router
   .route(process.env.GET_SIPARIS_LISTELE)
-  .get(LoginAktifMi(), SiparisleriCagir);
+  .get(SiparisleriCagir);
 
 router
   .route(process.env.POST_GIRIS)
