@@ -37,7 +37,7 @@ router
 
 router.route(process.env.GET_URUN_LISTELE).get(MenuCagir);
 
-router.route(process.env.PUT_URUN_DUZENLE).put(LoginAktifMi(), UrunDuzenle);
+router.route(process.env.PUT_URUN_DUZENLE).put(UrunDuzenle);
 
 router.route(process.env.DELETE_URUN_SIL).post(LoginAktifMi(), UrunSil);
 
