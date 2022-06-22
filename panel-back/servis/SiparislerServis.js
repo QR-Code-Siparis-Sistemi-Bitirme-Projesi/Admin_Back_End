@@ -38,6 +38,7 @@ const siparisGuncelle = (DuzenlenenSiparis) => {
     Ekstralar: DuzenlenenSiparis.Ekstralar,
     Not: DuzenlenenSiparis.Not,
     ToplamFiyat: DuzenlenenSiparis.ToplamFiyat,
+    SiparisAktifMi: DuzenlenenSiparis.SiparisAktifMi,
   };
 
   return SiparisSchema.findByIdAndUpdate(DuzenlenenSiparis.id, guncelSiparis); //Id ile siparişi bulup düzenlenen ile değiştirme.

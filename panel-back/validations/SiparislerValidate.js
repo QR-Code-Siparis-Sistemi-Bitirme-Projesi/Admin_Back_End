@@ -6,7 +6,7 @@ const SiparisValidate = Joi.object({
   Ekstralar: Joi.array().max(50),
   Not: Joi.string().max(150),
   ToplamFiyat: Joi.number().required().min(1),
-  SiparisAktifMi: Joi.boolean().required()
+  SiparisAktifMi: Joi.boolean()
 });
 
 
