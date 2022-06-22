@@ -4,12 +4,11 @@ const mongoose = require("mongoose");
 const SiparisSchema = new mongoose.Schema(
   {
     masaNo: { type: Number },
-    Urun: { type: String },
-    Fiyat: { type: Number },
-    icindekiler: { type: Array },
+    Urun: { type: Array },
     Ekstralar: { type: Array },
     Not: { type: String },
     ToplamFiyat: { type: Number },
+    SiparisAktifMi:{type:Boolean}
   },
   //TOPLAM ÜRÜN SAYISINI VE TOPLAM FİYATI VERECEK BİR BİÇİMDE DÜZENLENECEK!
   {

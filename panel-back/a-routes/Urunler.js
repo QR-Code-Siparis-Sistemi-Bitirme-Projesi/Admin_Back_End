@@ -43,7 +43,7 @@ router.route(process.env.DELETE_URUN_SIL).delete(LoginAktifMi(), UrunSil);
 
 router
   .route(process.env.POST_SIPARIS_EKLE)
-  .post(LoginAktifMi(), siparislerValidation(SiparisValidate), SiparisEkle);
+  .post(siparislerValidation(SiparisValidate), SiparisEkle);
 
 router
   .route(process.env.PUT_SIPARIS_DUZENLE)
