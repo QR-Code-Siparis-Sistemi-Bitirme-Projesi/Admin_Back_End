@@ -33,13 +33,13 @@ const {
 
 router
   .route(process.env.POST_URUN_EKLE)
-  .post(LoginAktifMi(), secmeliValidasyon, UrunEkle);
+  .post(LoginAktifMi(), UrunEkle);
 
 router.route(process.env.GET_URUN_LISTELE).get(MenuCagir);
 
 router.route(process.env.PUT_URUN_DUZENLE).put(LoginAktifMi(), UrunDuzenle);
 
-router.route(process.env.DELETE_URUN_SIL).delete(LoginAktifMi(), UrunSil);
+router.route(process.env.DELETE_URUN_SIL).post(LoginAktifMi(), UrunSil);
 
 router
   .route(process.env.POST_SIPARIS_EKLE)

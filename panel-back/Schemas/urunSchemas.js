@@ -5,7 +5,7 @@ const KahvaltiSchema = new mongoose.Schema(
   {
     Urun: { type: String },
     Fiyat: { type: Number },
-    İçindekiler: [{}],
+    İçindekiler: { type: Array },
   },
   {
     collection: "Kahvaltı", //Veri tabanında tablonun adı.
@@ -54,7 +54,7 @@ const SandviclerSchema = new mongoose.Schema(
   {
     Urun: { type: String },
     Fiyat: { type: Number },
-    İçindekiler: [{}],
+    İçindekiler: { type: Array },
   },
   {
     collection: "Sandviçler",
