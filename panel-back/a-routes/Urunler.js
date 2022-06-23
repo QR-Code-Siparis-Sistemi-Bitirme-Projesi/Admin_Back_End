@@ -49,7 +49,7 @@ router
   .route(process.env.PUT_SIPARIS_DUZENLE)
   .put(LoginAktifMi(), SiparisDuzenle);
 
-router.route(process.env.DELETE_SIPARIS_SIL).delete(LoginAktifMi(), SiparisSil);
+router.route(process.env.DELETE_SIPARIS_SIL).post(LoginAktifMi(), SiparisSil);
 
 router
   .route(process.env.GET_SIPARIS_LISTELE)
