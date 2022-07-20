@@ -30,20 +30,17 @@ const {
   secmeliValidasyon,
 } = require("../middleware/dogrulama");
 
-
-router
-  .route(process.env.POST_URUN_EKLE)
-  .post(LoginAktifMi(), UrunEkle);
+router.route(process.env.POST_URUN_EKLE).post(LoginAktifMi(), UrunEkle);
 
 router.route(process.env.GET_URUN_LISTELE).get(MenuCagir);
 
-router.route(process.env.PUT_URUN_DUZENLE).put(UrunDuzenle);
+router.route(process.env.PUT_URUN_DUZENLE).put(LoginAktifMi(), UrunDuzenle);
 
 router.route(process.env.DELETE_URUN_SIL).post(LoginAktifMi(), UrunSil);
 
 router
   .route(process.env.POST_SIPARIS_EKLE)
-  .post(siparislerValidation(SiparisValidate), SiparisEkle);
+  .post(siparislerValidation(SiparisValidate), LoginAktifMi(), SiparisEkle);
 
 router
   .route(process.env.PUT_SIPARIS_DUZENLE)
@@ -51,12 +48,9 @@ router
 
 router.route(process.env.DELETE_SIPARIS_SIL).post(LoginAktifMi(), SiparisSil);
 
-router
-  .route(process.env.GET_SIPARIS_LISTELE)
-  .get(SiparisleriCagir);
+router.route(process.env.GET_SIPARIS_LISTELE).get(SiparisleriCagir);
 
 router
   .route(process.env.POST_GIRIS)
   .post(AdminGirisValidation(adminSchema.AdminValidate), AdminGiris);
-
 module.exports = router;
